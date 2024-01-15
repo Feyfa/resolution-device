@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+        }
+        body {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        form {
+            background-color: #EEF5FF;
+            width: max-content;
+            text-align: center;
+            border: 1px solid rgb(150, 150, 150);
+            border-radius: .3rem;
+            padding: 1rem;
+        }
+        form .holder {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+            margin: .5rem 0;
+        }
+        form .holder.button {
+            margin-top: 2rem;
+        }
+        form .holder label {
+            font-size: 24px;
+            margin-bottom: .2rem;
+        }
+        form .holder input {
+            width: 300px;
+            font-size: 24px;
+            padding: .3rem .5rem;
+            border-radius: .2rem;
+            outline: none;
+            border: 1px solid rgb(100, 100, 100);
+            overflow: hidden;
+            background-color: rgba(150,150,150,.1);
+        }
+        form .holder button {
+            width: 100%;
+            border: 1px solid rgb(50, 50, 50);
+            background-color: #3B3486;
+            color: white;
+            letter-spacing: 3px;
+            border-radius: .2rem;
+            font-size: 24px;
+            padding: .3rem 0;
+        } 
+    </style>
+</head>
+<body>
+    <form>
+        <div class="holder width">
+            <label for="">Width (px)</label>
+            <input type="text" readonly>
+        </div>
+        <div class="holder height">
+            <label for="">Heigh (px)</label>
+            <input type="text" readonly>
+        </div>
+        <div class="holder button">
+            <button type="button">Check</button>
+        </div>
+    </form>
+
+    <script>
+        const inputEls = document.querySelectorAll('input');
+        const buttonEl = document.querySelector('button');
+
+        buttonEl.addEventListener('click', () => {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const resolution = [width, height];
+            console.log(resolution);
+
+            inputEls.forEach((inputEl, index) => {
+                inputEl.value = resolution[index];
+            });
+        })
+
+
+    </script>
+</body>
+</html>
